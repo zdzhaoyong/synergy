@@ -76,7 +76,7 @@ start_service() # this one is general
   echo "Type=simple" >> /tmp/$SERVICE_NAME.service
   echo "KillMode=control-group" >> /tmp/$SERVICE_NAME.service
   echo "Restart=on-failure" >> /tmp/$SERVICE_NAME.service
-  echo "RestartSec=1min" >> /tmp/$SERVICE_NAME.service
+  echo "RestartSec=10sec" >> /tmp/$SERVICE_NAME.service
   echo "Environment=DISPLAY=:0" >> /tmp/$SERVICE_NAME.service
   echo "User=$USER" >> /tmp/$SERVICE_NAME.service
   echo "ExecStart=/bin/bash " $(readlink -f $0) >> /tmp/$SERVICE_NAME.service
