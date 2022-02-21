@@ -7,19 +7,19 @@
 
 ## 服务端 （你想使用的键鼠连接在的电脑，一般为台式机）
 
-1. 首先使用脚本打开服务端界面：
+1. 首先使用脚本打开界面：
 
 ```
 bash synergy_service.sh start
 ```
 
-2. 点击菜单Edit，将Use SSL encryption给去掉，不去掉鼠标键盘各种抖。。。
+2. 点击菜单Edit->Settings，勾选hide on startup, 将Use SSL encryption给去掉，不去掉鼠标键盘各种抖。。。
 
 3. 选择Server， Configure interatively, 在里面添加一个屏幕，名字修改为想要添加电脑的hostname, 名字是定义电脑身份的id，很重要
 
 4. 点击Apply，Start即可启动功能
 
-5. 开机自启： 
+5. 开机自启(进入桌面后可能需要等待一段时间）： 
 
 ```
 bash synergy_service.sh start_service
@@ -28,18 +28,14 @@ bash synergy_service.sh start_service
 
 ## 客户端 （想被远程控制键鼠的电脑）
 
-1. 修改synergy_service.sh脚本中的start函数，注释server，启用client并修改ip
+1. 首先使用脚本打开界面：
 
 ```
-start() # Start the service
-{
- export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$(pwd)
- # ./synergy # server
- ./synergyc 192.168.1.191 # client, please change to the server ip
-}
+bash synergy_service.sh start
 ```
-
-2. 开机自启
+2. 点击菜单Edit->Settings，勾选hide on startup, 将Use SSL encryption给去掉，不去掉鼠标键盘各种抖。。。
+3. 选择Client，填入Server的ip即可
+4. 开机自启(进入桌面后可能需要等待一段时间）：
 
 ```
 bash synergy_service.sh start_service
